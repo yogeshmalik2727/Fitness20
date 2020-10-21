@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Fitness20.Models.ExerciseInfo>
+
+@{
+    ViewData["Title"] = "ViewAllExercises";
+}
+<h1 class="text-center">View Exercises</h1>
+<hr />
+<p>Type something in the input field to search the Execise:</p>
+<input class="form-control" id="myInput" type="text" placeholder="Search..">
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Exercise Name
+            </th>
+            <th>
+                Duration in Minutes
+            </th>
+            <th>
+                Number of Set in Weeks
+            </th>
+            <th>
+                Exercise Type
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExerciseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfSet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExerciseType.ExerciseTypeName)
+                </td>
+                <td>
+                    <a asp-action="ExerciseDetails" class="btn btn-success" asp-route-id="@item.ExerciseID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

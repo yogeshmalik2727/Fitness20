@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Fitness20.Models.ExerciseType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">View All Exercise Type</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Exercise Type</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExerciseTypeName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseTypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.ExerciseTypeID">Edit</a> |
+                <a asp-action="Details" class="btn btn-success"  asp-route-id="@item.ExerciseTypeID">Details</a> |
+                <a asp-action="Delete" class="btn btn-warning"  asp-route-id="@item.ExerciseTypeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

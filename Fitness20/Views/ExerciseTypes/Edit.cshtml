@@ -1,0 +1,33 @@
+﻿@model Fitness20.Models.ExerciseType
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Exercise Type Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ExerciseTypeID" />
+            <div class="form-group">
+                <label asp-for="ExerciseTypeName" class="control-label"></label>
+                <input asp-for="ExerciseTypeName" class="form-control" />
+                <span asp-validation-for="ExerciseTypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Exercise Type Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">View All Exercise Type</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
